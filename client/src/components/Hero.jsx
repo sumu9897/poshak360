@@ -39,12 +39,13 @@ const Hero = () => {
       </div>
 
       {/* Hero Right Side */}
-      <div className="w-full sm:w-1/2">
+      <div className="w-full h-[700px] sm:w-1/2">
         <img
           className="w-full h-full object-cover"
           src={assets.hero_img}
           alt="Showcasing our latest clothing arrivals"
         />
+        
       </div>
     </section>
   );
