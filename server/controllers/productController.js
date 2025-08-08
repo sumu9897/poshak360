@@ -60,6 +60,75 @@ const addProduct = async (req, res) => {
   }
 };
 
+const editProduct = async (req, res) => {
+  try {
+    const {
+      id,
+      name,
+      description,
+      price,
+      category,
+      subCategory,
+      sizes,
+      bestseller,
+    } = req.body;
+
+    if (!id) {
+      return res.json({ success: false, message: "Product ID is required" });
+    }
+
+    // Find the product first
+    const product = await productModel.findById(id);
+    if (!product) {
+      return res.json({ success: false, message: "Product not found" });
+    }
+
+    // Prepare an update object
+    const updateData = {};
+
+    if (name) updateData.name = name;
+    if (description) updateData.description = description;
+    if (price) updateData.price = Number(price);
+    if (category) updateData.category = category;
+    if (subCategory) updateData.subCategory = subCategory;
+    if (sizes) updateData.sizes = JSON.parse(sizes);
+    if (bestseller !== undefined) updateData.bestseller = bestseller === "true" ? true : false;
+
+    // Handle images if new ones uploaded
+    const image1 = req.files?.image1?.[0];
+    const image2 = req.files?.image2?.[0];
+    const image3 = req.files?.image3?.[0];
+    const image4 = req.files?.image4?.[0];
+    const image5 = req.files?.image5?.[0];
+    const image6 = req.files?.image6?.[0];
+
+    const newImages = [image1, image2, image3, image4, image5, image6].filter(
+      (item) => item !== undefined
+    );
+
+    if (newImages.length > 0) {
+      // Upload new images to Cloudinary
+      const imagesUrl = await Promise.all(
+        newImages.map(async (item) => {
+          let result = await cloudinary.uploader.upload(item.path, {
+            resource_type: "image",
+          });
+          return result.secure_url;
+        })
+      );
+      updateData.image = imagesUrl;
+    }
+
+    // Update the product with new data
+    await productModel.findByIdAndUpdate(id, updateData, { new: true });
+
+    res.json({ success: true, message: "Product updated successfully" });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
+
+
 // list product
 const listProduct = async (req, res) => {
   try {
@@ -94,4 +163,4 @@ const singleProduct = async (req, res) => {
   }
 };
 
-export { addProduct, listProduct, removeProduct, singleProduct };
+export { addProduct, listProduct, removeProduct, singleProduct, editProduct };
