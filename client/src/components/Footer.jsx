@@ -1,12 +1,16 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div>
       <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">
         <div>
-          <img src={assets.logo} className="mb-5 w-32" alt="" />
+        <Link to={"/"}>
+        <img src={assets.logo} className="mb-5 w-32" alt="" />
+      </Link>
+          
           <p className="w-full md:w-2/3 text-gray-600">
             At <strong>Poshak360</strong>, we bring you the finest selection of
             traditional and modern attire, blending comfort with elegance.

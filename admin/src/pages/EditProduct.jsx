@@ -251,7 +251,7 @@ const EditProduct = ({ token }) => {
 
       <button
         type="submit"
-        className="w-28 py-3 mt-4 bg-black text-white rounded hover:bg-gray-800 transition"
+        className="w-28 py-3 mt-4 bg-black text-white rounded hover:bg-gray-800 transition cursor-pointer"
       >
         Update Product
       </button>
