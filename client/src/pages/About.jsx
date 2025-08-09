@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div>
       {/* About Us Section */}
-      <div className="text-2xl text-center pt-8 border-t">
+      <div className="text-2xl text-center pt-8 border-t border-gray-200">
         <Title title1="about" title2="us" />
       </div>
 

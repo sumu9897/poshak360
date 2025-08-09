@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "server" : "nodemon server.js"
+    "server": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@clerk/clerk-sdk-node": "^4.13.23",
     "bcrypt": "^6.0.0",
     "cloudinary": "^2.7.0",
     "cors": "^2.8.5",

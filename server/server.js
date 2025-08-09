@@ -6,6 +6,8 @@ import connectCloudinary from './config/cloudinary.js'
 import userRouter from './routes/userRoute.js'
 import productRouter from './routes/productRoute.js'
 import cartRouter from './routes/cartRoute.js'
+import { ClerkExpressWithAuth } from '@clerk/clerk-sdk-node';
+
 
 
 // App Config
@@ -17,6 +19,10 @@ connectCloudinary()
 // midddlewares
 app.use(express.json())
 app.use(cors())
+
+app.use(ClerkExpressWithAuth({
+    apiKey: process.env.CLERK_SECRET_KEY
+  }));
 
 
 // api endpoints
