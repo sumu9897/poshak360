@@ -4,45 +4,92 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
-      <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">
+    <footer className="bg-gray-50 border-t">
+      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-3 gap-12 text-sm">
+        
+        {/* Brand Section */}
         <div>
-        <Link to={"/"}>
-        <img src={assets.logo} className="mb-5 w-32" alt="" />
-      </Link>
-          
-          <p className="w-full md:w-2/3 text-gray-600">
+          <Link to="/">
+            <img src={assets.logo} className="mb-5 w-36" alt="Poshak360 Logo" />
+          </Link>
+          <p className="text-gray-600 leading-relaxed max-w-sm">
             At <strong>Poshak360</strong>, we bring you the finest selection of
-            traditional and modern attire, blending comfort with elegance.
-            Whether you're dressing up for a celebration or everyday style, our
-            curated collections ensure you look your best — always.
+            traditional and modern attire — blending comfort with elegance. From
+            festive celebrations to everyday style, our collections ensure you
+            always look your best.
           </p>
         </div>
 
+        {/* Company Links */}
         <div>
-            <p className="text-xl font-medium mb-5">COMPANY</p>
-            <ul className="flex flex-col gap-2 text-gray-600">
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Delivery</li>
-                <li>Privacy Policy</li>
-            </ul>
+          <p className="text-lg font-semibold text-gray-800 mb-5">Company</p>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                to="/"
+                className="hover:text-black transition-colors duration-200"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="hover:text-black transition-colors duration-200"
+              >
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/delivery"
+                className="hover:text-black transition-colors duration-200"
+              >
+                Delivery
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/privacy-policy"
+                className="hover:text-black transition-colors duration-200"
+              >
+                Privacy Policy
+              </Link>
+            </li>
+          </ul>
         </div>
 
+        {/* Contact Info */}
         <div>
-        <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
-            <ul className="flex flex-col gap-2 text-gray-600">
-                <li>+880-123-456-789</li>
-                <li>contact@poshak360.com</li>
-
-            </ul>
+          <p className="text-lg font-semibold text-gray-800 mb-5">Get in Touch</p>
+          <ul className="space-y-2 text-gray-600">
+            <li>
+              <a
+                href="tel:+880123456789"
+                className="hover:text-black transition-colors duration-200"
+              >
+                +880-123-456-789
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:contact@poshak360.com"
+                className="hover:text-black transition-colors duration-200"
+              >
+                contact@poshak360.com
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-      <div>
-        <hr style={{ borderColor: '#808080' }}/>
-        <p className="py-5 text-sm text-center">Copyright 2025@ poshak360.vercel.app - All Right Reserved.</p>
+
+      {/* Footer Bottom */}
+      <div className="border-t border-gray-300">
+        <p className="py-5 text-center text-gray-500 text-xs">
+          &copy; {new Date().getFullYear()} poshak360.vercel.app — All Rights Reserved.
+        </p>
       </div>
-    </div>
+    </footer>
   );
 };
 
