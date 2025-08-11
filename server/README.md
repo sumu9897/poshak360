@@ -22,3 +22,33 @@ The backend API powers the Poshak360 platform with secure data handling, authent
 - **Payments:** Stripe / COD
 - **File Storage:** Cloudinary
 - **Deployment:** Vercel
+
+```bash
+Directory structure:
+└── server/
+    ├── README.md
+    ├── package.json
+    ├── server.js
+    ├── .gitignore
+    ├── config/
+    │   ├── cloudinary.js
+    │   └── db.js
+    ├── controllers/
+    │   ├── cartController.js
+    │   ├── orderController.js
+    │   ├── productController.js
+    │   └── userController.js
+    ├── middleware/
+    │   ├── adminAuth.js
+    │   ├── auth.js
+    │   └── multer.js
+    ├── models/
+    │   ├── orderModel.js
+    │   ├── productModel.js
+    │   └── userModel.js
+    └── routes/
+        ├── cartRoute.js
+        ├── orderRoute.js
+        ├── productRoute.js
+        └── userRoute.js
+```
